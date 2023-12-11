@@ -1,68 +1,73 @@
 # Unity Component of Mosaic Maker
 
 ## Overview
-This Unity project is an integral part of Mosaic Maker, focusing on two main modules: Nesting and ROS. The Nesting module is at the heart of the mosaic creation process, managing color bins, object placement, and SVG representations. The ROS module facilitates communication with the Robot Operating System (ROS), ensuring seamless integration between Unity and the robotic control systems.
+The Unity component of Mosaic Maker represents the forefront of combining real-time mosaic creation with advanced robotics. It features two primary modules: Nesting for intricate mosaic layout planning and ROS for precise robotic interactions.
 
-![UI Unity](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/UI.png)
+![UI Unity](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/UI.png)  
+*The Unity Interface of Mosaic Maker, showcasing the integration of Nesting and ROS modules.*
 
 ## Nesting Module
 
-### Key Components
+### Overview
+The Nesting module, the heart of the mosaic creation process, orchestrates the layout and design of mosaics with precision and artistry.
 
 #### ColourBinsManager
-- **Functionality:** Manages color bins for mosaic creation.
-- **Features:**
-  - Instantiates and manages bin objects.
-  - Handles setting up 3D clones and managing placed objects.
+- **Functionality:** This component categorizes and manages color bins, essential for sorting and arranging mosaic tiles according to color themes.
+- **Operations:** It's responsible for instantiating bin objects and their 3D representations, enhancing visual interaction and management.
 
-![ColourBins Visualization](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/Color_Bin_Mosaic.png)
+![ColourBins Visualization](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/Color_Bin_Mosaic.png)  
+*Visualization of Color Bins managed by ColourBinsManager, highlighting the color organization process.*
 
 #### MosaicNesting
-- **Purpose:** Central to the mosaic creation logic.
-- **Key Features:**
-  - `SaveDataApp` class for saving nesting progress.
-  - Functions for checking object status and clearing all placed objects.
+- **Purpose:** Acts as the command center for the nesting logic, integrating various components for a cohesive mosaic layout.
 - **Capabilities:**
-  - Supports both regular and irregular objects in the nesting process.
-  - Optimized for bins with a single hole.
+  - Accommodates a diverse range of object shapes, including both regular and irregular forms.
+  - Specifically optimized for single-hole bin configurations, demonstrating versatility in handling different mosaic designs.
 - **Nesting Strategy:**
-  - Utilizes a bottom-left placement approach, followed by generating Non-Fitting Polygon (NFP) and selecting the best NFP based on specific needs.
-  - Designed to nest one object at a time in separate calls, catering to specific use-case requirements, even though it might not be the most optimized method for general purposes.
+  - The initial object placement follows a bottom-left algorithm, efficiently utilizing space within the bin.
+  - Employs a sophisticated Non-Fitting Polygon (NFP) algorithm for subsequent placements, meticulously selecting the best placement based on project-specific requirements.
+  - This dynamic, on-the-go nesting approach allows for real-time adjustments, vital for bespoke mosaic creations.
 
-##### Regulat Shapes
-![Mosaic_Nesting Visualization](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/Mosaic_Nesting.png)
+![Mosaic Nesting Regular Shapes](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/Mosaic_Nesting.png)  
+*Nesting of Regular Shapes, demonstrating the efficiency of the bottom-left placement strategy.*
 
-##### Irregular Shapes
-![Mosaic_Nesting Visualization](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/Mosaic_Nesting_Irregular.png)
-
+![Mosaic Nesting Irregular Shapes](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/Mosaic_Nesting_Irregular.png)  
+*Nesting of Irregular Shapes, showcasing the adaptability of the NFP algorithm.*
 
 #### BinPlacer
-- **Role:** Handles object placement within bins.
+- **Purpose:** Specialized in strategically placing objects within bins, adapting to the unique contours of each piece.
 - **Strategy:**
-  - Implements a bottom-left placement algorithm.
-  - Manages 3D positioning of scanned objects.
-- **Specialization:**
-  - Capable of handling the placement of both regular and irregularly shaped objects.
+  - Utilizes bottom-left placement logic for the initial object, ensuring the most efficient use of space.
+  - Adapts to the irregular shapes of objects, ensuring each piece fits perfectly within the layout.
 
 ### Technical Insights
-- The module employs advanced algorithms for efficient and aesthetically pleasing mosaic layouts.
-- Innovative approaches are used for color management and object placement, ensuring optimal use of space and color harmony.
+- The Nesting module incorporates cutting-edge algorithms for both regular and irregular object placement, ensuring each piece is positioned to achieve the best possible aesthetic and functional result. The use of NFP algorithms represents a significant advancement in mosaic technology, allowing for more complex and visually striking designs.
 
 ## ROS Module
 
 ### Overview
-The ROS module is designed to bridge Unity and the Robot Operating System. It enables real-time data exchange and control, playing a crucial role in the robotic aspect of Mosaic Maker.
+The ROS module acts as a bridge between digital planning and physical execution, translating the intricate designs from Unity into precise robotic actions.
 
-![ROS CONNECTION](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/ROS.png)
+#### RobotManager
+- **Functionality:** Serves as the central hub for ROS communications, converting Unity's detailed plans into robotic instructions.
+- **Integration with RobotTaskManager:** This subsystem decomposes complex tasks into executable actions, guiding the robotic arm with precision.
 
-### Key Functionalities
-- **Data Exchange:** Facilitates seamless communication between Unity and ROS, ensuring accurate and timely control commands.
-- **Real-Time Updates:** Handles updates and feedback from the robotic systems, integrating them into the Unity environment.
+#### RobotTaskManager
+- **Role:** Manages and sequences each robotic task, ensuring fluid and accurate execution of the mosaic placement.
 
-## Integration Points
-- **Nesting and ROS Interaction:** The modules work in tandem, with the Nesting module providing layout data that informs the robotic actions controlled via the ROS module.
-- **Data Protocols:** Utilizes specific data formats and communication protocols to maintain consistency and reliability in data exchange.
+![ROS Connection](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/ROS.png)  
+*The ROS connection interface, highlighting the communication between Unity and the robotic system.*
+
+### User Interaction and Control
+- The Unity interface offers a user-friendly control panel, where users can upload images, segment them based on color profiles, and dynamically control the mosaic creation process, including pause and resume functionalities.
+
+## Data Exchange and Integration
+- Unity sends detailed positional and orientation data to ROS, dictating the robotic arm's trajectory.
+- Feedback from ROS includes joint trajectory data, which Unity uses to refine and adjust the robotic movements for flawless execution.
+
+## Use Case Scenario: Robotic Mosaic Creation
+- Mosaic Maker was employed in a scenario where it generated a mosaic using a robot. The system scanned objects on a table using an Intel RealSense camera, reconstructed them in Unity, and then directed the robot to pick and place each piece according to the Nesting module's layout.
 
 ## Future Enhancements
-- Continuous improvement in the algorithms for nesting and color management.
-- Further refinement in Unity-ROS communication for enhanced performance and capabilities.
+- Ongoing developments aim to enhance the parallel processing capabilities of the nesting algorithm, significantly boosting speed and efficiency.
+- Continuous refinement of Unity-ROS communication is planned, expanding the system's capabilities and performance.
