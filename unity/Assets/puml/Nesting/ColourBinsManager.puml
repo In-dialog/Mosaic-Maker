@@ -1,0 +1,21 @@
+@startuml
+class ColourBinsData {
+    + name : string
+    + ColourBinsData(binsManager:ColourBinsManager)
+    + InstantiateColourBinsManager() : ColourBinsManager
+}
+class ColourBinsManager {
+    + pixelsPerUnit : int = 1000
+    + flipYAxis : bool = false
+    + InstantiateBins(pathToFile:string) : void
+    + InstantiateBins(savedData:ColourBinsData) : void
+    + FindBinForPlacing(newObject:ScannedObjectSvg) : List<BinSvg>
+    + GetDataForSaving() : ColourBinsData
+}
+class "List`1"<T> {
+}
+ColourBinsData --> "myBinsData<BinDataSave>" "List`1"
+MonoBehaviour <|-- ColourBinsManager
+ColourBinsManager --> "myBins<BinSvg>" "List`1"
+ColourBinsManager --> "MyColour" Color
+@enduml

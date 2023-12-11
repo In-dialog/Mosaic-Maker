@@ -1,0 +1,23 @@
+@startuml
+!include ./ROS/RobotManager.puml
+!include ./Utils/Polylabel.puml
+!include ./Utils/DouglasPeucker.puml
+!include ./Utils/UtilsColor.puml
+!include ./Utils/FixedPoint.puml
+!include ./Utils/MeshUtility.puml
+!include ./Utils/ExtensionMethods.puml
+!include ./Utils/PolygonUtility.puml
+!include ./Nesting/ColourBinsManager.puml
+!include ./Nesting/MosaicNesting.puml
+!include ./Nesting/BinPlacer.puml
+!include ./ROS/Classes/RobotArmTaskController.puml
+!include ./ROS/Classes/CameraController.puml
+!include ./ROS/Classes/RobotArmController.puml
+!include ./Nesting/SVG/MeshSvgScript.puml
+!include ./Nesting/SVG/ScannedObjectSvg.puml
+!include ./Nesting/SVG/BinSvg.puml
+!include ./Nesting/SVG/BaseSvgScript.puml
+!include ./Nesting/Classes/ANFPResult.puml
+!include ./Nesting/Classes/NFPGenerator.puml
+!include ./Nesting/Classes/NFPSelector.puml
+@enduml

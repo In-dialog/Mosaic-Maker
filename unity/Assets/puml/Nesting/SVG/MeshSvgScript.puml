@@ -1,0 +1,6 @@
+@startuml
+class MeshSvgScript {
+}
+BaseSvgScript <|-- MeshSvgScript
+MeshSvgScript --> "m_Color" Color
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+class DouglasPeucker <<static>> {
+    + {static} Simplify(vertices:List<Vector3>, max:int, tolerance:double) : List<Vector3>
+}
+class Segment {
+    + Start : int <<get>> <<set>>
+    + End : int <<get>> <<set>>
+    + Perpendicular : int <<get>> <<set>>
+    + Distance : double <<get>> <<set>>
+}
+DouglasPeucker +-- Segment
+@enduml

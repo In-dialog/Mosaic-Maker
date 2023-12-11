@@ -1,0 +1,20 @@
+@startuml
+class PolyLabel <<static>> {
+    + {static} GetPolyLabel(polygon:Vector2[], precision:float) : Vector3
+    + {static} PointToPolygonDist(x:float, y:float, polygon:Vector2[]) : float
+}
+class Cell {
+    + <<readonly>> X : float
+    + <<readonly>> Y : float
+    + <<readonly>> H : float
+    + <<readonly>> D : float
+    + <<readonly>> Max : float
+    + Cell(x:float, y:float, h:float, polygon:Vector2[])
+}
+class CellPriorityQueue {
+    + CellPriorityQueue()
+    + Enqueue(cell:Cell) : void
+    + HasItems : bool <<get>>
+    + Dequeue() : Cell
+}
+@enduml

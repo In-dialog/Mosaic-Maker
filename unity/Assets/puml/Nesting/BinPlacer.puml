@@ -1,0 +1,11 @@
+@startuml
+class BinPlacer {
+    + PlaceObjectInBinCoroutine(newObject:ScannedObjectSvg, ObjectPlaced:Action<bool>) : IEnumerator
+}
+class "List`1"<T> {
+}
+MonoBehaviour <|-- BinPlacer
+BinPlacer --> "objectToPlace<ScannedObjectSvg>" "List`1"
+BinPlacer --> "bin" BinSvg
+BinPlacer o-> "PlacedObjects<ScannedObjectSvg>" "List`1"
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class BaseSvgScript {
+    + svg : string = "..."
+    + pixelsPerUnit : int
+    + flipYAxis : bool
+}
+MonoBehaviour <|-- BaseSvgScript
+@enduml

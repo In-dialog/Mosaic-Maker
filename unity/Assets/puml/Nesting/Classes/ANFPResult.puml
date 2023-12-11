@@ -1,0 +1,9 @@
+@startuml
+class ANFPResult {
+    + TotalDistanceToBinVertices : float <<get>> <<set>>
+    + ANFPResult(position:Vector2, rotation:Quaternion, stationaryObject:ScannedObjectSvg)
+}
+ANFPResult --> "Position" Vector2
+ANFPResult --> "Rotation" Quaternion
+ANFPResult --> "StationaryObject" ScannedObjectSvg
+@enduml

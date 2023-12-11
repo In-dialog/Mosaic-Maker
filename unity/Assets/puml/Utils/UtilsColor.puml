@@ -1,0 +1,8 @@
+@startuml
+class UtilsColor <<static>> {
+    + {static} FindMostSimilarColorIndex(baseColor:Color, colors:List<Color>) : int
+    + {static} AreColorsSimilar(baseColor:Color, colorToCheck:Color, hueThreshold:float, saturationThreshold:float, lightnessThreshold:float) : bool
+    + {static} IsColorCloseToBaseColor(baseColor:Color, colorToCheck:Color, hueThreshold:float) : bool
+    + {static} AreColorsSimilarEuclideanDistance(baseColor:Color, colorToCheck:Color, threshold:float) : bool
+}
+@enduml

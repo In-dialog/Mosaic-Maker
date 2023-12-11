@@ -1,0 +1,10 @@
+@startuml
+class NFPGenerator {
+    + NFPGenerator(binPlacer:BinPlacer)
+    + GenerateNfp(stationary:ScannedObjectSvg, moving:ScannedObjectSvg, nfpResults:List<ANFPResult>) : IEnumerator
+    + IsValidPlacement(newObject:ScannedObjectSvg, position:Vector2, placedObjects:List<ScannedObjectSvg>) : bool
+    + CheckIfObjectPlacementITsGood() : IEnumerator
+    + GizmoDrawing() : void
+}
+NFPGenerator --> "BinPlacer" BinPlacer
+@enduml

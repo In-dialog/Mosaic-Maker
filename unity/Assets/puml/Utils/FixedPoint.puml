@@ -1,0 +1,11 @@
+@startuml
+struct FixedPoint {
+    + FixedPoint(fixedValue:int)
+    + {static} FromMeters(meters:float) : FixedPoint
+    + ToMeters() : float
+    + {static} Abs(value:FixedPoint) : FixedPoint
+    + <<override>> Equals(obj:object) : bool
+    + <<override>> GetHashCode() : int
+}
+FixedPoint --> "Zero" FixedPoint
+@enduml

@@ -1,0 +1,3 @@
+std_msgs/Header header
+GoalStatus status
+RobotSimpleCommandActionResult result

@@ -1,0 +1,15 @@
+@startuml
+class RobotManager {
+    + {static} mMoveServiceName : string = "listen_move"
+    + {static} mCameraServiceName : string = "cameraScanning"
+    + {static} mGripperServiceName : string = "ur_hardware_interface/set_io"
+    + {static} mPlatformServiceName : string = "robot/command_manager/command"
+    + {static} mPlatformReturnTopic : string = "robot/command_manager/action/result"
+    + {static} mRobotStartServiceName : string
+    + {static} mRobotStopServiceName : string
+}
+MonoBehaviour <|-- RobotManager
+RobotManager --> "TargetPlacement" Transform
+RobotManager --> "debugObject" ScannedObjectSvg
+RobotManager --> "Instance" RobotManager
+@enduml

@@ -1,0 +1,48 @@
+@startuml
+class SvgSaveData {
+    + SvgString : string
+    + Name : string
+    + Depth : float
+    + PosX : float
+    + PosY : float
+    + PosZ : float
+    + rotX : float
+    + rotY : float
+    + rotZ : float
+    + rotW : float
+    + SvgSaveData(scannedObjectSvg:ScannedObjectSvg)
+    + InstantiateObjectFromSaveData() : ScannedObjectSvg
+}
+interface IScannedObject {
+    + AreaTotal : float <<get>> <<set>>
+    + DepthObject : float <<get>> <<set>>
+}
+class ScannedObjectSvg {
+    + testing : bool
+    + AreaTotal : float <<get>> <<set>>
+    + DepthObject : float <<get>> <<set>>
+    + <<virtual>> Awake() : void
+    + GetSaveData() : SvgSaveData
+    + <<virtual>> GenerateObject(svgString:string, depth:float) : void
+    + Generate2DOutline(mesh:Mesh) : List<Vector2>
+    + UpdateTransformVertex(desiredRotation:Quaternion, position:Vector2) : void
+    + UpdatePosition(position:Vector2) : void
+    + UpdateRotation(desiredRotation:Quaternion) : void
+}
+class "List`1"<T> {
+}
+IScannedObject --> "MColor" Color
+IScannedObject --> "OriginalPosition" Vector3
+IScannedObject --> "TargetPosition" Vector3
+IScannedObject --> "MyCollider" BoxCollider
+IScannedObject --> "OutlineVertices<Vector2>" "List`1"
+BaseSvgScript <|-- ScannedObjectSvg
+IScannedObject <|-- ScannedObjectSvg
+ScannedObjectSvg --> "myMesh" Mesh
+ScannedObjectSvg --> "MColor" Color
+ScannedObjectSvg --> "OriginalPosition" Vector3
+ScannedObjectSvg --> "TargetPosition" Vector3
+ScannedObjectSvg --> "MyCollider" BoxCollider
+ScannedObjectSvg --> "OutlineVertices<Vector2>" "List`1"
+ScannedObjectSvg --> "ExpandedOutlineVertices<Vector2>" "List`1"
+@enduml

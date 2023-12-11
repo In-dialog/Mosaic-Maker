@@ -1,0 +1,16 @@
+@startuml
+class PolygonUtility <<static>> {
+    + {static} RotateVertex(vertices:List<Vector2>, rotation:Quaternion) : List<Vector2>
+    + {static} CheckAndFixVertexOrder(vertices:List<Vector2>) : List<Vector2>
+    + {static} IsObjectInsideBinWithHole(objectVertices:List<Vector2>, binOutlineVertices:List<Vector2>, holeVertices:List<Vector2>) : bool
+    + {static} IsObjectInsideBin(objectVertices:List<Vector2>, binVertices:List<Vector2>) : bool
+    + {static} IsPointNearVertex(polygon:List<Vector2>, point:Vector2) : bool
+    + {static} IsPointInPolygon(polygon:List<Vector2>, point:Vector2) : bool
+    + {static} CheckCollision(polygonA:List<Vector2>, polygonB:List<Vector2>) : bool
+    + {static} ExpandPolygon(polygon:List<Vector2>, offset:float) : List<Vector2>
+    + {static} GenerateConvexHull(points:List<Vector2>) : List<Vector2>
+    + {static} CalculatePerimeter(polygon:List<Vector2>) : float
+    + {static} Orientation(p:Vector2, q:Vector2, r:Vector2) : float
+    + {static} CalculateArea(vertices:List<Vector2>) : float
+}
+@enduml

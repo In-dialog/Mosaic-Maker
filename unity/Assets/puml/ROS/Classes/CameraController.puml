@@ -1,0 +1,7 @@
+@startuml
+class CameraController {
+    + Initialize(robotArmTaskController:RobotArmTaskController, ros:ROSConnection) : void
+    + GetCameraData() : void
+}
+CameraController --> "ScannedObject" ScannedObjectSvg
+@enduml

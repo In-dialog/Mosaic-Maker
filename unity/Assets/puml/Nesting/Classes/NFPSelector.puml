@@ -1,0 +1,8 @@
+@startuml
+class NFPSelector {
+    + NFPSelector(binPlacer:BinPlacer)
+    + FindBestFitResultCoroutine(nfpResults:List<ANFPResult>, newObject:ScannedObjectSvg) : IEnumerator
+    + GizmoDrawing() : void
+}
+NFPSelector --> "BinPlacer" BinPlacer
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+class SaveDataList {
+}
+class MosaicNesting {
+    + pathToMosaic : string
+    + PlaceNewObject(newObject:ScannedObjectSvg) : IEnumerator
+    + ObjectCheckStatus(status:bool) : void
+    + FindBinsForObject(newObject:ScannedObjectSvg) : List<BinSvg>
+    + GetImageSegmentation() : void
+    + SaveCurrentState() : void
+    + LoadSavedState() : void
+}
+class "List`1"<T> {
+}
+SaveDataList --> "dataToSave<ColourBinsData>" "List`1"
+MonoBehaviour <|-- MosaicNesting
+MosaicNesting --> "testingColor" Color
+MosaicNesting --> "mosaicImage" RawImage
+@enduml

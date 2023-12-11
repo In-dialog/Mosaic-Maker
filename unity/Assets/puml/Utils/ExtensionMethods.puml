@@ -1,0 +1,5 @@
+@startuml
+class ExtensionMethods <<static>> {
+    + {static} ToVector(color:Color) : Vector3
+}
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+class RobotArmController {
+    + sendWithConstraints : bool = true
+    + realRobotConnection : bool
+    + RobotArmController()
+    + Initialize(ros:ROSConnection, monoBehaviorAttached:MonoBehaviour) : void
+    + GetPositionRelativeTo(otherObjectPosition:Vector3) : Vector3
+    + MoveRobot(pos:Vector3, rotation:Quaternion, objAttached:ScannedObjectSvg) : IEnumerator
+    + InteractWithGripper(activate:bool) : IEnumerator
+}
+class "List`1"<T> {
+}
+RobotArmController --> "myRobot" GameObject
+RobotArmController --> "sceneCollisionObjects<Transform>" "List`1"
+RobotArmController --> "robotArmAttachments<Transform>" "List`1"
+@enduml

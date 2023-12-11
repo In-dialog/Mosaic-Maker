@@ -1,0 +1,15 @@
+@startuml
+class Edge {
+    + v1 : int
+    + v2 : int
+    + Edge(a:int, b:int)
+    + <<override>> GetHashCode() : int
+    + <<override>> Equals(obj:object) : bool
+    + AreSame(other:Edge) : bool
+}
+class MeshUtility <<static>> {
+    + {static} CenterMeshToVisualCenter(mesh:Mesh, visualCenter:Vector3) : void
+    + {static} CalculateBoundingBoxSize(mesh:Mesh, transform:Transform) : Vector3
+    + {static} ExtrudeMesh(mesh:Mesh, depth:float) : void
+}
+@enduml

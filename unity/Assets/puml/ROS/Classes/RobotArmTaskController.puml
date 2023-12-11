@@ -1,0 +1,30 @@
+@startuml
+enum PickAndPlaceStep {
+    PreGrasp,
+    Grasp,
+    PostGrasp,
+    PreRelease,
+    Release,
+    PostRelease,
+}
+class RobotArmTaskController {
+    + StartPickAndPlaceSequence(objToBePickUp:ScannedObjectSvg) : void
+    + MoveToScan() : IEnumerator
+    + MoveToPickUp() : IEnumerator
+    + MoveToPlacement() : IEnumerator
+    + MoveToRelease() : IEnumerator
+    + PickAndPlaceSequence(objToBePickUp:ScannedObjectSvg) : IEnumerator
+    + PickSequence(objToBePickUp:ScannedObjectSvg) : IEnumerator
+    + PlaceSequence(objToBePickUp:ScannedObjectSvg) : IEnumerator
+    + CalculatePositionEeLink(positionE:Vector3, positionAttachment:Vector3, positionObj:Vector3) : Vector3
+}
+RobotArmController <|-- RobotArmTaskController
+RobotArmTaskController --> "Dummy" Transform
+RobotArmTaskController --> "eeLink" Transform
+RobotArmTaskController --> "camera" Transform
+RobotArmTaskController --> "attachmentEnd" Transform
+RobotArmTaskController --> "scanningPose" Transform
+RobotArmTaskController --> "pickingPose" Transform
+RobotArmTaskController --> "placementPose" Transform
+RobotArmTaskController --> "releasePose" Transform
+@enduml

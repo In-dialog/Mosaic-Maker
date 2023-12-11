@@ -1,0 +1,1 @@
+<svg width="2000" height="2000" xmlns="http://www.w3.org/2000/svg"><path d="M308 0 308 4 309 7 310 10 311 13 315 21 316 23 316 21 317 16 318 15 319 9 318 3 318 0 308 0 z" stroke="black" fill="red"/></svg>

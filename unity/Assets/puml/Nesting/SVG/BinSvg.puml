@@ -1,0 +1,22 @@
+@startuml
+class BinDataSave {
+    + BinDataSave(bin:BinSvg)
+    + InstantiateBinWithObject() : BinSvg
+}
+class BinSvg {
+    + areaLeft : float
+    + <<override>> Awake() : void
+    + GenerateObject() : void
+    + <<override>> GenerateObject(svgString:string, depth:float) : void
+    + CheckIfCanBePlaced(newObject:ScannedObjectSvg) : bool
+    + GetBinData() : BinDataSave
+}
+class "List`1"<T> {
+}
+BinDataSave --> "placedObjectsData<SvgSaveData>" "List`1"
+BinDataSave --> "binSaveData" SvgSaveData
+ScannedObjectSvg <|-- BinSvg
+BinSvg --> "bottomLeft" Vector2
+BinSvg --> "placer" BinPlacer
+BinSvg --> "HoleOutline<Vector2>" "List`1"
+@enduml

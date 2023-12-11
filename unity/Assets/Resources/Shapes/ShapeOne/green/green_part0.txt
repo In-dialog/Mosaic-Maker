@@ -1,0 +1,1 @@
+<svg width="2000" height="2000" xmlns="http://www.w3.org/2000/svg"><path d="M203 2042 199 2047 225 2047 223 2046 219 2044 216 2043 213 2042 210 2041 203 2042 z" stroke="black" fill="green"/></svg>

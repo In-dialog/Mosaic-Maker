@@ -1,0 +1,9 @@
+@startuml
+class SocketClient {
+    + serverIP : string = "127.0.0.1"
+    + serverPort : int = 8888
+    + maxRetryCount : int = 3
+    + reconnectDelay : float = 2f
+}
+MonoBehaviour <|-- SocketClient
+@enduml
