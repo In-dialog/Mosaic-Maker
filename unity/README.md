@@ -1,13 +1,9 @@
-
 # Unity Component of Mosaic Maker
 
 ## Overview
 This Unity project is an integral part of Mosaic Maker, focusing on two main modules: Nesting and ROS. The Nesting module is at the heart of the mosaic creation process, managing color bins, object placement, and SVG representations. The ROS module facilitates communication with the Robot Operating System (ROS), ensuring seamless integration between Unity and the robotic control systems.
 
 ![UI Unity](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/UI.png)
-
-### Suggested Screenshot:
-- A screenshot of the Unity interface showing a high-level view of the project, with elements from both the Nesting and ROS modules visible.
 
 ## Nesting Module
 
@@ -26,8 +22,18 @@ This Unity project is an integral part of Mosaic Maker, focusing on two main mod
 - **Key Features:**
   - `SaveDataApp` class for saving nesting progress.
   - Functions for checking object status and clearing all placed objects.
+- **Capabilities:**
+  - Supports both regular and irregular objects in the nesting process.
+  - Optimized for bins with a single hole.
+- **Nesting Strategy:**
+  - Utilizes a bottom-left placement approach, followed by generating Non-Fitting Polygon (NFP) and selecting the best NFP based on specific needs.
+  - Designed to nest one object at a time in separate calls, catering to specific use-case requirements, even though it might not be the most optimized method for general purposes.
 
+##### Regulat Shapes
 ![Mosaic_Nesting Visualization](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/Mosaic_Nesting.png)
+
+##### Irregular Shapes
+![Mosaic_Nesting Visualization](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/Mosaic_Nesting_Irregular.png)
 
 
 #### BinPlacer
@@ -35,6 +41,8 @@ This Unity project is an integral part of Mosaic Maker, focusing on two main mod
 - **Strategy:**
   - Implements a bottom-left placement algorithm.
   - Manages 3D positioning of scanned objects.
+- **Specialization:**
+  - Capable of handling the placement of both regular and irregularly shaped objects.
 
 ### Technical Insights
 - The module employs advanced algorithms for efficient and aesthetically pleasing mosaic layouts.
