@@ -4,6 +4,11 @@
 ## Overview
 This Unity project is an integral part of Mosaic Maker, focusing on two main modules: Nesting and ROS. The Nesting module is at the heart of the mosaic creation process, managing color bins, object placement, and SVG representations. The ROS module facilitates communication with the Robot Operating System (ROS), ensuring seamless integration between Unity and the robotic control systems.
 
+![UI Unity](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/UI.png)
+
+### Suggested Screenshot:
+- A screenshot of the Unity interface showing a high-level view of the project, with elements from both the Nesting and ROS modules visible.
+
 ## Nesting Module
 
 ### Key Components
@@ -14,11 +19,16 @@ This Unity project is an integral part of Mosaic Maker, focusing on two main mod
   - Instantiates and manages bin objects.
   - Handles setting up 3D clones and managing placed objects.
 
+![ColourBins Visualization](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/Color_Bin_Mosaic.png)
+
 #### MosaicNesting
 - **Purpose:** Central to the mosaic creation logic.
 - **Key Features:**
   - `SaveDataApp` class for saving nesting progress.
   - Functions for checking object status and clearing all placed objects.
+
+![Mosaic_Nesting Visualization](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/Mosaic_Nesting.png)
+
 
 #### BinPlacer
 - **Role:** Handles object placement within bins.
@@ -34,6 +44,8 @@ This Unity project is an integral part of Mosaic Maker, focusing on two main mod
 
 ### Overview
 The ROS module is designed to bridge Unity and the Robot Operating System. It enables real-time data exchange and control, playing a crucial role in the robotic aspect of Mosaic Maker.
+
+![ROS CONNECTION](https://github.com/In-dialog/Mosaic-Maker/blob/main/images/ROS.png)
 
 ### Key Functionalities
 - **Data Exchange:** Facilitates seamless communication between Unity and ROS, ensuring accurate and timely control commands.
